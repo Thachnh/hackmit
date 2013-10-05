@@ -81,4 +81,14 @@ class ToursController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /tours/my_tours
+  def my_tour
+    @tours = current_user.tours
+    respond_to do |format|
+      #format.html {redirect_to my_tours_url}
+      format.json { render json: @tours}
+    end
+
+  end
 end
