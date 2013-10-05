@@ -7,3 +7,4 @@ HackMIT 2013
 * Vu Bui
 * Quoc Le
 * Duc Anh Nguyen
+* Duc Nguyen
