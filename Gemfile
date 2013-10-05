@@ -4,8 +4,12 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required
@@ -18,10 +22,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
-  gem "less-rails"
   gem 'flatui-rails'
 end
+gem 'twitter-bootstrap-rails'
+gem "less-rails"
 
 gem 'jquery-rails'
 gem 'therubyracer'
