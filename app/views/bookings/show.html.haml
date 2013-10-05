@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Scheduled tour:
+  = @booking.scheduled_tour
+%p
+  %b User:
+  = @booking.user
+%p
+  %b First name:
+  = @booking.first_name
+%p
+  %b Last name:
+  = @booking.last_name
+%p
+  %b Email:
+  = @booking.email
+%p
+  %b Phone:
+  = @booking.phone
+
+= link_to 'Edit', edit_booking_path(@booking)
+\|
+= link_to 'Back', bookings_path

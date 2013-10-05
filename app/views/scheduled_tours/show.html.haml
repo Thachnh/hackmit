@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Tour:
+  = @scheduled_tour.tour
+%p
+  %b Start time:
+  = @scheduled_tour.start_time
+%p
+  %b End time:
+  = @scheduled_tour.end_time
+
+= link_to 'Edit', edit_scheduled_tour_path(@scheduled_tour)
+\|
+= link_to 'Back', scheduled_tours_path

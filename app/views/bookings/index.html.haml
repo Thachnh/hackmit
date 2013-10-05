@@ -1,0 +1,29 @@
+%h1 Listing bookings
+
+%table
+  %tr
+    %th Scheduled tour
+    %th User
+    %th First name
+    %th Last name
+    %th Email
+    %th Phone
+    %th
+    %th
+    %th
+
+  - @bookings.each do |booking|
+    %tr
+      %td= booking.scheduled_tour
+      %td= booking.user
+      %td= booking.first_name
+      %td= booking.last_name
+      %td= booking.email
+      %td= booking.phone
+      %td= link_to 'Show', booking
+      %td= link_to 'Edit', edit_booking_path(booking)
+      %td= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Booking', new_booking_path

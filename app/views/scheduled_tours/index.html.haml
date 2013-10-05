@@ -1,0 +1,23 @@
+%h1 Listing scheduled_tours
+
+%table
+  %tr
+    %th Tour
+    %th Start time
+    %th End time
+    %th
+    %th
+    %th
+
+  - @scheduled_tours.each do |scheduled_tour|
+    %tr
+      %td= scheduled_tour.tour
+      %td= scheduled_tour.start_time
+      %td= scheduled_tour.end_time
+      %td= link_to 'Show', scheduled_tour
+      %td= link_to 'Edit', edit_scheduled_tour_path(scheduled_tour)
+      %td= link_to 'Destroy', scheduled_tour, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Scheduled tour', new_scheduled_tour_path

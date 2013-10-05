@@ -1,0 +1,19 @@
+= form_for @scheduled_tour do |f|
+  - if @scheduled_tour.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@scheduled_tour.errors.count, "error")} prohibited this scheduled_tour from being saved:"
+      %ul
+        - @scheduled_tour.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :tour
+    = f.text_field :tour
+  .field
+    = f.label :start_time
+    = f.text_field :start_time
+  .field
+    = f.label :end_time
+    = f.text_field :end_time
+  .actions
+    = f.submit 'Save'

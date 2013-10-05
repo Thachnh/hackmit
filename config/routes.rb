@@ -1,4 +1,10 @@
 TourStarter::Application.routes.draw do
+  resources :bookings
+
+
+  resources :scheduled_tours
+
+
   get "home/index"
 
   resources :tours
