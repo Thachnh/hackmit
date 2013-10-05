@@ -41,3 +41,5 @@ gem 'haml-rails'
 
 # To use debugger
 # gem 'debugger'
+# Gem Heroku
+gem "heroku"
