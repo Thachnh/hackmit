@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tour.name
+%p
+  %b User:
+  = @tour.user_id
+%p
+  %b Loc name:
+  = @tour.loc_name
+%p
+  %b Loc lat:
+  = @tour.loc_lat
+%p
+  %b Loc lon:
+  = @tour.loc_lon
+%p
+  %b Prize:
+  = @tour.prize
+%p
+  %b Start time:
+  = @tour.start_time
+%p
+  %b End time:
+  = @tour.end_time
+
+= link_to 'Edit', edit_tour_path(@tour)
+\|
+= link_to 'Back', tours_path

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  user_id: 1
+  loc_name: MyString
+  loc_lat: MyString
+  loc_lon: MyString
+  prize: 9.99
+  start_time: 2013-10-05 15:24:54
+  end_time: 2013-10-05 15:24:54
+
+two:
+  name: MyString
+  user_id: 1
+  loc_name: MyString
+  loc_lat: MyString
+  loc_lon: MyString
+  prize: 9.99
+  start_time: 2013-10-05 15:24:54
+  end_time: 2013-10-05 15:24:54
