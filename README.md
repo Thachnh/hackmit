@@ -1,7 +1,9 @@
-Thach Nguyen
-Vu Bui
-
 hackmit
 =======
 
 HackMIT 2013
+
+* Thach Nguyen
+* Vu Bui
+* Quoc Le
+
