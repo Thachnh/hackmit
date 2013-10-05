@@ -1,7 +1,9 @@
 .container
   %h1{style: "text-align:center"} PLACE HOLDER FOR SEARCH ICON. LIKE A GOOGLE ICON.
   %form.form-inline{style: "text-align:center;", role: "form"}
-    %input#inputTour{style: "width:600px", type: "text"}/
+    %input#inputTour{style: "width:500px", type: "text", onfocus:"this.value=''", value:"Boston, MA"}/
+    %button.btn.btn-primary{style: "width:80px", type: "submit"}
+      %i.icon-search.icon-white
   %table
     %tr
       %th Name
