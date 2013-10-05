@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index] 
   # GET /tours
   # GET /tours.json
   def index
