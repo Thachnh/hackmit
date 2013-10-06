@@ -3,11 +3,11 @@
     %h1{style: "color:white; padding-bottom:40px; font-size:70px"} A New Way To Explore:
     %h2{style: "color:white; padding-left: 470px; font-size:60px"} Meet A Local
   .container{style: "text-align:center;"}
-    %form.form-inline{role: "form", :method => "post", :id => "searchForm"}
+    %form.form-inline{role: "form", :method => "get", :id => "searchForm"}
       .input-prepend
         %span.add-on Find
         %input#inputTour{style: "width:400px", type: "text", placeholder:"What would you like to explore?", autocomplete: "off"} /
-      %input#inputLocation{style: "width:200px", type: "text", onfocus:"this.value=''", value:"Boston, MA", autocomplete: "off"}/
+      %input#inputLocation{style: "width:200px", name: "location", type: "text", onfocus:"this.value=''", value:"Boston, MA", autocomplete: "off"}/
       %button.btn.btn-primary{style: "width:80px; margin: 0", type: "submit", onclick: "submitSearch(this.form); "}
         %i.icon-search.icon-white
 .container{style: "padding-top:10px;"}

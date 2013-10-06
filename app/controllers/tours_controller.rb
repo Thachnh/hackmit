@@ -20,6 +20,15 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @scheduled_tours = @tour.scheduled_tours
+    @x = @tour.venues
+    @lats = []
+    @lons = []
+    @names = []
+    @x.each do |v|
+      @lats.push(v.lat)
+      @lons.push(v.lon)
+      @names.push(v.name)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tour }
