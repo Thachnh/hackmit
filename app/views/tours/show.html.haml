@@ -9,8 +9,8 @@
     .span5
       = @tour.loc_name
       %p
-        %b User:
-        = @tour.user.email
+        %b Tour guide:
+        = "#{@tour.user.first_name} #{@tour.user.last_name}"
       %p
         %b Loc name:
         = @tour.loc_name
