@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005230523) do
+ActiveRecord::Schema.define(:version => 20131006000246) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "scheduled_tour_id"
@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(:version => 20131005230523) do
     t.decimal  "prize"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   create_table "users", :force => true do |t|
