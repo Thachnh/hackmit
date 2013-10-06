@@ -15,16 +15,29 @@
 .container
   .row
     - @tours.each do |tour|
-      .span4
-        %img.img-polaroid{src: "http://placekitten.com/300/200", style: "width: 100%;"}/
-        %h2= tour.name
-        %table
-          %th
-            %i.icon-map-marker
-            %span= tour.loc_name
-          %th= "#{tour.start_time} - #{tour.end_time}"
-            
-          %th= tour.prize
+      =link_to tour do
+        .span4{style: "margin-bottom: 10px;"}
+          .card{style: "background-color: #eee; padding: 5px"}
+            %img{src: "http://placekitten.com/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            %h3{style: "margin: 5px 0;"}
+              = tour.name
+            .pull-left
+              %i.icon-map-marker
+              %span= tour.loc_name
+            .pull-right
+              = "#{tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
+            .clear{style: "clear:both"}
+            .price.pull-left
+              $
+              = tour.prize
+            .pull-right
+              %i.icon-star
+              %i.icon-star
+              %i.icon-star
+              %i.icon-star
+              %i.icon-star
+            .clear{style: "clear:both"}
+
 .container
   %table
     %tr
