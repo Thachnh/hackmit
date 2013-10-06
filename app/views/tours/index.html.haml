@@ -40,37 +40,3 @@
               %i.icon-star
               %i.icon-star
             .clear{style: "clear:both"}
-
-.container
-  %table
-    %tr
-      %th Name
-      %th User
-      %th Loc name
-      %th Loc lat
-      %th Loc lon
-      %th Prize
-      %th Start time
-      %th End time
-      %th
-      %th
-      %th
-
-    - @tours.each do |tour|
-      %tr
-        %td= tour.name
-        %td= tour.user_id
-        %td= tour.loc_name
-        %td= tour.loc_lat
-        %td= tour.loc_lon
-        %td= tour.prize
-        %td= tour.start_time
-        %td= tour.end_time
-        %td= link_to 'Show', tour
-        %td= link_to 'Edit', edit_tour_path(tour)
-        %td= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' }
-
-  %br
-
-  .btn-group
-    = link_to 'Create A New Tour', new_tour_path, :class => 'btn'
