@@ -15,3 +15,51 @@
 	padding-bottom: 60px;
 	float: right;
 }
+
+#new_tour input[type=text] {
+	width: 80%;
+}
+
+#new_tour textarea {
+	width: 80%;
+}
+
+.ui-autocomplete-loading { background: white url('http://jqueryui.com/demos/autocomplete/images/ui-anim_basic_16x16.gif') right center no-repeat; }
+	
+.ui-menu-item {
+	min-height:40px;
+}
+	
+.categoryIconContainer {
+	border-radius: 3px 3px 3px 3px;
+    float: left;
+    height: 32px;
+    margin-right: 5px;
+    overflow: hidden;
+    width: 8px;
+    vertical-align: middle;
+}
+.autocomplete-name {
+	color: #333333;
+    font-weight: bold;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+.autocomplete-detail {
+  	color: #999999;
+    font-weight: normal;
+    font-size: 13px;
+    margin-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+.tour-venue a {
+	color: red;
+}
+
+.tour-venue {
+	margin: 5px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}

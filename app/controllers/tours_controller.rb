@@ -7,7 +7,7 @@ class ToursController < ApplicationController
     if params[:tag]
       @tours = Tour.tagged_with(params[:tag]).limit(6)
     else
-      @tours = Tour.limit(6)
+      @tours = Tour.order("id desc").limit(6)
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +20,17 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @scheduled_tours = @tour.scheduled_tours
+    @x = @tour.venues
+    @lats = []
+    @lons = []
+    @names = []
+    @images = []
+    @x.each do |v|
+      @lats.push(v.lat)
+      @lons.push(v.lon)
+      @names.push(v.name)
+      @images.push(v.image_url)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tour }

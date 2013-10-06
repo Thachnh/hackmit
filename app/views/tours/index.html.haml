@@ -3,28 +3,34 @@
     %h1{style: "color:white; padding-bottom:40px; font-size:70px"} A New Way To Explore:
     %h2{style: "color:white; padding-left: 470px; font-size:60px"} Meet A Local
   .container{style: "text-align:center;"}
-    %form.form-inline{role: "form", :method => "post", :id => "searchForm"}
+    %form.form-inline{role: "form", :method => "get", :id => "searchForm"}
       .input-prepend
         %span.add-on Find
         %input#inputTour{style: "width:400px", type: "text", placeholder:"What would you like to explore?", autocomplete: "off"} /
-      %input#inputLocation{style: "width:200px", type: "text", onfocus:"this.value=''", value:"Boston, MA", autocomplete: "off"}/
+      %input#inputLocation{style: "width:200px", name: "location", type: "text", onfocus:"this.value=''", value:"Boston, MA", autocomplete: "off"}/
       %button.btn.btn-primary{style: "width:80px; margin: 0", type: "submit", onclick: "submitSearch(this.form); "}
         %i.icon-search.icon-white
 .container{style: "padding-top:10px;"}
   %hr.featurette-divider
 .container
   .row
-    -#- if !@tours.nil? and @tours.length > 0
     - @tours.each do |tour|
       =link_to tour do 
         .span4{style: "margin-bottom: 10px;"}
           .card{style: "background-color: #eee; padding: 5px"}
-            %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            - if tour.venues.empty?
+              %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            - else
+              %img{src: "#{tour.venues[0].image_url}", style: "width: 100%; height: 200px; margin: 0; padding: 0; border: 0; display: block;"}/
             %h3{style: "margin: 5px 0;"}
               = tour.name
             .pull-left
               %i.icon-map-marker
-              %span= tour.loc_name
+              %span
+                - if tour.venues.empty?
+                   
+                - else
+                  = tour.venues[0].name
             .clear{style: "clear:both"}
             .price.pull-left
               - if !tour.prize.nil? and tour.prize > 0
@@ -38,6 +44,7 @@
               %i.icon-star
               %i.icon-star
               %i.icon-star
+            .clear{style: "clear:both"}
 :javascript
   function submitSearch(form) {
     if (document.getElementById('inputTour').value!="") {

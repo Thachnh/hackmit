@@ -6,52 +6,46 @@
       %ul
         - @tour.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :loc_name
-    = f.text_field :loc_name
-  .field
-    = f.label :loc_lat
-    = f.text_field :loc_lat
-  .field
-    = f.label :loc_lon
-    = f.text_field :loc_lon
-  .field
-    = f.label "Price"
-    = f.text_field :prize
-  .field
-    = f.label :tag_list, "Tags (separated by commas)" 
-    = f.text_field :tag_list
-  %strong Venues on the tour
-  %div#venues
-    - if @tour.venues.any?
-      - @tour.venues.each do |v|
-        %div.tour-venue
-          %a{href:";"} X
-          %strong= v.name
-          %img{src: @v.url}/
-    - else
-      %p.strong There isn't any venues yet. Tour requires at least one venue
+  %div.container-fluid.fill
+    %div.row-fluid
+      %div.span6
+        .field
+          = f.label :name
+          = f.text_field :name
+        .field
+          = f.label :description
+          = f.text_area :description, :rows => 5
+        .field
+          = f.label "Price"
+          = f.text_field :prize
+        .field
+          = f.label :tag_list, "Tags (separated by commas)" 
+          = f.text_field :tag_list
+      %div.span6.hero-unit.filler
+        %strong Venues on the tour
+        %div#venues
+          - if @tour.venues.any?
+            - @tour.venues.each do |v|
+              %div.tour-venue
+                %a{href:";"} X
+                %strong= v.name
+                %img{src: @v.url}/
+          - else
+            %p.strong There isn't any venues yet. Tour requires at least one venue
 
 
-  %label.inline{:for=>"venue-search"} Add a venue
-  %input.inline#venue-search{:type=>"text"}
+        %label.inline{:for=>"venue-search"} Add a venue
+        %input.inline#venue-search{:type=>"text"}
 
   .actions
     = f.submit 'Save', class: "btn btn-primary"
 %div.tour-venue.hidden#templa
   %a{href:"#", onclick:"$(this).parent().remove(); return false;"} X
   %strong.venue-name= ""
-  %strong.venue-address{name:"a"}
+  %span.venue-address= ""
   %img{src: ""}
   %input.venue-name{type:"hidden", name:"venues[][name]"}
-  %input.venue-address{type:"hidden", name:"venues[][image_url]"}
+  %input.venue-imageurl{type:"hidden", name:"venues[][image_url]"}
   %input.venue-lat{type:"hidden", name:"venues[][lat]"}
   %input.venue-lon{type:"hidden", name:"venues[][lon]"}
 
@@ -71,14 +65,21 @@
         }
         x = $('#templa.tour-venue').clone();
         x.children("strong.venue-name").html(ui.item.name);
-        x.children("strong.venue-address").html(ui.item.address);
+        x.children("span.venue-address").html(ui.item.address);
         x.children("input.venue-name").val(ui.item.name);
-        x.children("input.venue-address").val(ui.item.address);
+        x.children("input.venue-imageurl").val(ui.item.address);
         console.log(ui.item);
         x.children("input.venue-lat").val(ui.item.full.location.lat);
         x.children("input.venue-lon").val(ui.item.full.location.lng);
         x.attr("id","").removeClass("hidden");
         $('#venues').append(x);
+        $.ajax({
+          url: "https://api.foursquare.com/v2/venues/" + ui.item.id + "?oauth_token=WFHLKKDMFFZYVHQKZFLNIEP3HFWYZWQSVUJ223ZHCWWO0KII&v=20131006"
+        }).done(function(data){
+          console.log(data);
+          image = data.response.venue.photos.groups[0].items[0].prefix+"width670"+data.response.venue.photos.groups[0].items[0].suffix;
+          x.children("input.venue-imageurl").val(image);
+        });
       }
     })
   });
