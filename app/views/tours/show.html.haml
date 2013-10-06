@@ -22,7 +22,7 @@
       - @scheduled_tours.each do |scheduled_tour|
         %tr
           %td= "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
-          %td= link_to 'Book This Tour', new_scheduled_tour_path(@tour.id), :class => 'btn btn-success'
+          %td= link_to 'Book This Tour', new_booking_path(@tour.id), :class => 'btn btn-success'
     %p
       = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
   %p
