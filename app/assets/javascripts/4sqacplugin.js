@@ -32,7 +32,8 @@
                         v: "20120214",
                         client_id: options.client_id,
                         client_secret: options.client_secret,
-                        query: request.term
+                        query: request.term,
+                        limit: 10
                     },
                     success: function (data) {
                             // Check to see if there was success
