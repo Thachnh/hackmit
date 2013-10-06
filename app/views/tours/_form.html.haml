@@ -52,8 +52,8 @@
   %img{src: ""}
   %input.venue-name{type:"hidden", name:"venues[][name]"}
   %input.venue-address{type:"hidden", name:"venues[][image_url]"}
-  %input.venue-lat{type:"hidden", name:"a"}
-  %input.venue-lon{type:"hidden", name:"a"}
+  %input.venue-lat{type:"hidden", name:"venues[][lat]"}
+  %input.venue-lon{type:"hidden", name:"venues[][lon]"}
 
 = javascript_include_tag "4sqacplugin.js"
 
@@ -74,8 +74,9 @@
         x.children("strong.venue-address").html(ui.item.address);
         x.children("input.venue-name").val(ui.item.name);
         x.children("input.venue-address").val(ui.item.address);
-        x.children("input.venue-lat").val(ui.item.lat);
-        x.children("input.venue-lon").val(ui.item.lon);
+        console.log(ui.item);
+        x.children("input.venue-lat").val(ui.item.full.location.lat);
+        x.children("input.venue-lon").val(ui.item.full.location.lng);
         x.attr("id","").removeClass("hidden");
         $('#venues').append(x);
       }
