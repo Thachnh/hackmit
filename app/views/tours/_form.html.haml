@@ -25,10 +25,7 @@
     = f.label "Price"
     = f.text_field :prize
   .field
-    = f.label :start_time
-    = f.datetime_select :start_time
-  .field
-    = f.label :end_time
-    = f.datetime_select :end_time
+    = f.label :tag_list, "Tags (separated by commas)" 
+    = f.text_field :tag_list
   .actions
     = f.submit 'Save', class: "btn btn-primary"

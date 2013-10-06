@@ -4,8 +4,11 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.json
   def index
-    @tours = Tour.limit(6)
-
+    if params[:tag]
+      @tours = Tour.tagged_with(params[:tag]).limit(6)
+    else
+      @tours = Tour.limit(6)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tours }

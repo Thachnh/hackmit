@@ -14,8 +14,9 @@
   %hr.featurette-divider
 .container
   .row
+    -#- if !@tours.nil? and @tours.length > 0
     - @tours.each do |tour|
-      =link_to tour do
+      =link_to tour do 
         .span4{style: "margin-bottom: 10px;"}
           .card{style: "background-color: #eee; padding: 5px"}
             %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
@@ -24,8 +25,6 @@
             .pull-left
               %i.icon-map-marker
               %span= tour.loc_name
-            .pull-right
-              = "#{tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
             .clear{style: "clear:both"}
             .price.pull-left
               - if !tour.prize.nil? and tour.prize > 0
@@ -40,6 +39,8 @@
               %i.icon-star
               %i.icon-star
             .clear{style: "clear:both"}
+
+    
 
   .btn-group
     = link_to 'Create A New Tour', new_tour_path, :class => 'btn'
