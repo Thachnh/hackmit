@@ -13,6 +13,7 @@ TourStarter::Application.routes.draw do
   get "home/about", :to => 'home#about',  :as => 'about'
   get "scheduled_tours/:tour_id/new", :to => 'scheduled_tours#new', :as => "new_scheduled_tour"
   get "bookings/:scheduled_tour_id/new", :to => "bookings#new", :as => "new_booking"
+  post "sendsms/:number_to_send_to/:verify_number", :to => "send_sms#send_text_message"
 
   resources :tours 
 
