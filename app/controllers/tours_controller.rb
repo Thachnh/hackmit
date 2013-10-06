@@ -15,7 +15,7 @@ class ToursController < ApplicationController
   # GET /tours/1.json
   def show
     @tour = Tour.find(params[:id])
-
+    @scheduled_tours = @tour.scheduled_tours
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tour }

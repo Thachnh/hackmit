@@ -1,13 +1,18 @@
 TourStarter::Application.routes.draw do
-  resources :bookings
+  #resources :bookings
 
 
-  resources :scheduled_tours
+  #resources :scheduled_tours
 
 
   get "home/index"
 
-  resources :tours
+  resources :tours do
+    resources :scheduled_tours do
+      resources :bookings
+    end
+
+  end
 
   devise_for :users
 
