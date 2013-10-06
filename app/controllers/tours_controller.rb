@@ -4,7 +4,7 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.json
   def index
-    @tours = Tour.all
+    @tours = Tour.limit(6)
 
     respond_to do |format|
       format.html # index.html.erb
