@@ -21,4 +21,4 @@
 
 = link_to 'Edit', edit_booking_path(@booking)
 \|
-= link_to 'Back', bookings_path
+= link_to 'Back', tour_path(@booking.scheduled_tour.tour.id)
