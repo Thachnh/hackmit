@@ -4,6 +4,7 @@ TourStarter::Application.routes.draw do
   resources :venues
   resources :bookings, :except => [:index]
   get 'tags/:tag', :to => 'tours#index', :as => "tag"
+  post 'tags/:tag', :to => 'tours#index', :as => "tag"
 
   resources :scheduled_tours, :except => [:index, :new]
 
