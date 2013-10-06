@@ -19,12 +19,53 @@
 $(document).ready(function() {
   $('#inputLocation').typeahead( {
   	items : 10,
-  	source : [ 'Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Dakota','North Carolina','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+  	source : [
+  		'Los Angeles, CA',
+		'Anchorage, AK',
+		'Omaha, NE',
+		'St. Louis, MO',
+		'Portland, OR',
+		'Minneapolis, MN',
+		'Boulder, CO',
+		'Madison, WI',
+		'San Francisco, CA',
+		'Austin, TX',
+		'Chicago, IL',
+		'Washington, D.C.',
+		'Boston, MA',
+		'Oakland, CA',
+		'Eugene, OR',
+		'Cambridge, MA',
+		'Berkeley, CA',
+		'Seattle, WA',
+		'Chicago, IL',
+		'Austin, TX',
+		'Minneapolis, MN',
+		'St. Paul, MN',
+		'Sunnyvale, CA',
+		'Honolulu, HI',
+		'Fort Worth, TX',
+		'Denver, CO',
+		'New York, NY',
+		'Irvine, CA',
+		'Milwaukee, WI',
+		'Salt Lake City, UT',
+		'Pasadena, CA' ]
   });
 
   $('#inputTour').typeahead( {
   	items : 10,
-  	source : [ 'Book', 'Historic', 'Food', 'Nature', 'Sports' ]
+  	source : [
+  		'National Parks',
+  		'Culture',
+  		'Beer',
+  		'History',
+  		'Book',
+  		'Historic',
+  		'Food',
+  		'Nature',
+  		'Sports',
+  		'Cat' ]
   });
 
 });
