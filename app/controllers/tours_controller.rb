@@ -1,9 +1,10 @@
 class ToursController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index] 
+  layout "landing", only: [:index]
   # GET /tours
   # GET /tours.json
   def index
-    @tours = Tour.all
+    @tours = Tour.limit(6)
 
     respond_to do |format|
       format.html # index.html.erb
