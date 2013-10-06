@@ -1,3 +1,4 @@
+= stylesheet_link_tag "jquery-ui"
 = form_for @tour do |f|
   - if @tour.errors.any?
     #error_explanation
@@ -30,5 +31,57 @@
   .field
     = f.label :end_time
     = f.datetime_select :end_time
+  %strong Venues on the tour
+  %div#venues
+    - if @tour.venues.any?
+      - @tour.venues.each do |v|
+        %div.tour-venue
+          %a{href:";"} X
+          %strong= v.name
+          %img{src: @v.url}/
+    - else
+      %p.strong There isn't any venues yet. Tour requires at least one venue
+  %div.tour-venue.hidden#templa
+    %a{href:";"} X
+    %strong.venue-name= ""
+    %strong.venue-address{name:"a"}
+    %img{src: ""}
+    %input.venue-name{type:"hidden", name:"a"}
+    %input.venue-address{type:"hidden", name:"a"}
+    %input.venue-id{type:"hidden", name:"a"}
+    %input.venue-lat{type:"hidden", name:"a"}
+    %input.venue-lon{type:"hidden", name:"a"}
+
+
+  %label.inline{:for=>"venue-search"} Add a venue
+  %input.inline#venue-search{:type=>"text"}
   .actions
     = f.submit 'Save', class: "btn btn-primary"
+
+= javascript_include_tag "4sqacplugin.js"
+
+:javascript
+  $(document).ready( function(){
+    $('#venue-search').foursquareAutocomplete({
+      'latitude': 42.356304,
+      'longitude': -71.064962,
+      'minLength': 3,
+      'client_id': "J2YUGLM3DK3YVC4QQ35YP0GWPXDPPKZNCYIPWRQOMJ1ERYSE",
+      'client_secret': "CKIOZW1DV2QJ3GUTYAYZZLD5GOPQ213CHNYCMVXH0DYLFNUT",
+      'search': function (event, ui) {
+        if ($('#venues .tour-venue').length == 0) {
+          $('#venues').html("");
+        }
+        x = $('#templa.tour-venue').clone();
+        x.children("strong.venue-name").html(ui.item.name);
+        x.children("strong.venue-address").html(ui.item.address);
+        x.children("input.venue-name").html(ui.item.name);
+        x.children("input.venue-id").val(ui.item.id);
+        x.children("input.venue-address").val(ui.item.address);
+        x.children("input.venue-lat").val(ui.item.lat);
+        x.children("input.venue-lon").val(ui.item.lon);
+        x.attr("id","").removeClass("hidden");
+        $('#venues').append(x);
+      }
+    })
+  });
