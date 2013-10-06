@@ -1,4 +1,7 @@
 TourStarter::Application.routes.draw do
+  resources :venues
+
+
   resources :bookings, :except => [:index]
 
 
