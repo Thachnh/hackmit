@@ -26,7 +26,11 @@
               = tour.name
             .pull-left
               %i.icon-map-marker
-              %span= tour.loc_name
+              %span
+                - if tour.venues.empty?
+                   
+                - else
+                  = tour.venues[0].name
             .clear{style: "clear:both"}
             .price.pull-left
               - if !tour.prize.nil? and tour.prize > 0
@@ -40,6 +44,7 @@
               %i.icon-star
               %i.icon-star
               %i.icon-star
+            .clear{style: "clear:both"}
 :javascript
   function submitSearch(form) {
     if (document.getElementById('inputTour').value!="") {
