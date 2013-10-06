@@ -21,6 +21,9 @@
             %a.brand{href: "/"} Tour Starter
             .nav-collapse
               %ul.nav
+                - if user_signed_in?
+                  %li
+                    = link_to 'Create A New Tour', new_tour_path
                 %li= link_to "About Us"
             .nav-collapse
               %ul.nav.pull-right
