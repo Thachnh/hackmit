@@ -18,7 +18,7 @@
       =link_to tour do
         .span4{style: "margin-bottom: 10px;"}
           .card{style: "background-color: #eee; padding: 5px"}
-            %img{src: "http://placekitten.com/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
             %h3{style: "margin: 5px 0;"}
               = tour.name
             .pull-left
@@ -28,9 +28,12 @@
               = "#{tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
             .clear{style: "clear:both"}
             .price.pull-left
-              $
-              = tour.prize
-            .pull-right
+              - if !tour.prize.nil? and tour.prize > 0
+                = "$#{tour.prize}"
+              - else
+                = "FREE"
+            .rating.pull-right
+              (4.99)
               %i.icon-star
               %i.icon-star
               %i.icon-star

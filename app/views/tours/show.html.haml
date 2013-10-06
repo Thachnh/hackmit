@@ -23,7 +23,7 @@
 
   .row-fluid
     .span7
-      %img{src: "http://placekitten.com/670/414"}/
+      %img{src: "http://theoldreader.com/kittens/670/414"}/
       %h2 
         = @tour.name
     .span5
@@ -36,21 +36,26 @@
         = @tour.loc_name
       %p
         %b Price:
-        = @tour.prize
+        - if !@tour.prize.nil? and @tour.prize > 0
+          = "$#{@tour.prize}"
+        - else
+          = "FREE"
 
-    %table
-      %tr
-        %th=  "Scheduled time"
-        %th=  "Total bookings"
-        %th=  "Actions"
+      %table
 
-      - @scheduled_tours.each do |scheduled_tour|
-        %tr
-          %td= "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
-          %td= total_booking(scheduled_tour.bookings)
-          %td= link_to 'Book This Tour', new_booking_path(scheduled_tour.id), :class => 'btn btn-success'
-    %p
-      = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
+        - @scheduled_tours.each do |scheduled_tour|
+          %tr
+            %td= "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
+            %td= "(#{total_booking(scheduled_tour.bookings)} Bookers)"
+            - if @tour.user == current_user
+              %td= ""
+            - else
+              %td= link_to 'Book This Tour', new_booking_path(scheduled_tour.id), :class => 'btn btn-success'
+      %p
+        - if @tour.user == current_user
+          = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
+        - else
+          %td= "Change..."
   %p
     = @tour.description 
     %br
