@@ -7,13 +7,13 @@
           %li= msg
 
   .field
-    = f.label :tour
-    = f.text_field :tour
+    = f.label :tour_id
+    = f.text_field :tour_id
   .field
     = f.label :start_time
-    = f.text_field :start_time
+    = f.datetime_select :start_time
   .field
     = f.label :end_time
-    = f.text_field :end_time
+    = f.datetime_select :end_time
   .actions
     = f.submit 'Save'
