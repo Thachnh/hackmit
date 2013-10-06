@@ -66,6 +66,10 @@
           %p
             %h4
               = "#{@tour.user.first_name} #{@tour.user.last_name}"
+              (
+              %i.icon-ok
+              Verified
+              )
             %p
               %i.icon-star
               %i.icon-star
@@ -102,6 +106,7 @@
         - if @tour.user == current_user
           = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
         - else
-          %td= "Change..."
+          %td= ""
+      %hr
 
 
