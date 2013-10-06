@@ -41,7 +41,7 @@ class ToursController < ApplicationController
   # POST /tours
   # POST /tours.json
   def create
-    @tour = Tour.new(params[:tour])
+    @tour = current_user.tours.new(params[:tour])
 
     respond_to do |format|
       if @tour.save
