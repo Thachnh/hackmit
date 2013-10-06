@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   # GET /bookings/new.json
   def new
+    @scheduled_tour_id = params[:scheduled_tour_id]
     @booking = Booking.new
 
     respond_to do |format|
@@ -40,8 +41,11 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(params[:booking])
-
+    if user_signed_in?
+      @booking = current_user.bookings.new(params[:booking])
+    else
+      @booking = Booking.new(params[:booking])
+    end
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }

@@ -1,5 +1,5 @@
 TourStarter::Application.routes.draw do
-  resources :bookings, :except => [:index]
+  resources :bookings, :except => [:index, :new]
 
 
   resources :scheduled_tours, :except => [:index, :new]
@@ -7,6 +7,7 @@ TourStarter::Application.routes.draw do
 
   get "home/index"
   get "scheduled_tours/:tour_id/new", :to => 'scheduled_tours#new', :as => "new_scheduled_tour"
+  get "bookings/:scheduled_tour_id/new", :to => "bookings#new", :as => "new_booking"
 
   resources :tours 
 
