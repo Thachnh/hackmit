@@ -7,8 +7,21 @@
       %h2 
         = @tour.name
       %p
-        = @tour.description
 
+        %b Loc name:
+        = @tour.loc_name
+      %p
+        %b Price:
+        - if !@tour.prize.nil? and @tour.prize > 0
+          = "$#{@tour.prize}"
+        - else
+          = "FREE"
+      %p
+        %b 
+          Tags:
+          - @tour.tag_list.each do |tag| 
+            = link_to tag, tag_path(tag)
+        = @tour.description
       #map_canvas
       :css
         #map_canvas {

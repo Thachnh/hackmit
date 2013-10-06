@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'devise'
 gem 'haml-rails'
+gem 'acts-as-taggable-on'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
