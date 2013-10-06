@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131006000246) do
+ActiveRecord::Schema.define(:version => 20131006014706) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "scheduled_tour_id"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20131006000246) do
 
   create_table "scheduled_tours", :force => true do |t|
     t.integer  "tour_id"
-    t.string   "start_time"
-    t.string   "end_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "start_time", :limit => 255
+    t.datetime "end_time",   :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "scheduled_tours", ["tour_id"], :name => "index_scheduled_tours_on_tour_id"
