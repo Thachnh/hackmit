@@ -65,7 +65,10 @@ $(document).ready(function() {
   		'Food',
   		'Nature',
   		'Sports',
-  		'Cat' ]
+  		'Cat',
+  		'Boston',
+  		'Philadelphia',
+  		'Coffee' ]
   });
 
 });
