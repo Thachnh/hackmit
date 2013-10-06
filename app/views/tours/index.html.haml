@@ -18,14 +18,13 @@
       .span4
         %img.img-polaroid{src: "http://placekitten.com/300/200", style: "width: 100%;"}/
         %h2= tour.name
-        %span= tour.user_id
-        %span= tour.loc_name
-        %span= tour.loc_lat
-        %span= tour.loc_lon
-        %span= tour.prize
-        %span= tour.start_time
-        %span= tour.end_time
-
+        %table
+          %th
+            %i.icon-map-marker
+            %span= tour.loc_name
+          %th= "#{tour.start_time} - #{tour.end_time}"
+            
+          %th= tour.prize
 .container
   %table
     %tr
