@@ -4,6 +4,7 @@ class Tour < ActiveRecord::Base
   belongs_to :user
   has_many :scheduled_tour
   has_many :venues
+  accepts_nested_attributes_for :venues
 
   acts_as_taggable
 end
