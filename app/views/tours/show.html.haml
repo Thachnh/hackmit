@@ -23,7 +23,8 @@
       %p
         %b End time:
         = @tour.end_time
-      = link_to 'Book This Tour', new_booking_path(@tour.id), :class => 'btn btn-success'
+        = @tour.id
+      = link_to 'Book This Tour', new_booking_path(@tour), :class => 'btn btn-success'
   .row-fluid
     %p
       = @tour.description
