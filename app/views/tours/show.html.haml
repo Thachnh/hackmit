@@ -10,31 +10,23 @@
       = @tour.loc_name
       %p
         %b User:
-        = @tour.user_id
+        = @tour.user.email
       %p
         %b Loc name:
         = @tour.loc_name
       %p
         %b Prize:
         = @tour.prize
-    %p
-      = @tour.description
-    %p
-      = link_to 'New Schedule Tour', new_scheduled_tour_path(@tour.id), :class => 'btn btn-success'
 
-  %table
-    %tr
-      %th Tour
-      %th Start time
-      %th End time
-      %th Book
-
-    - @scheduled_tours.each do |scheduled_tour|
-      %tr
-        %td= scheduled_tour.tour
-        %td= scheduled_tour.start_time
-        %td= scheduled_tour.end_time
-        %td= link_to 'Book This Tour', new_booking_path(scheduled_tour.id), :class => 'btn btn-success'
-%br
+    %table
+      - @scheduled_tours.each do |scheduled_tour|
+        %tr
+          %td= "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
+          %td= link_to 'Book This Tour', new_scheduled_tour_path(@tour.id), :class => 'btn btn-success'
+    %p
+      = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
+  %p
+    = @tour.description 
+    %br
 
 

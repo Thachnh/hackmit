@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Tour:
+  = @venue.tour_id
+%p
+  %b Name:
+  = @venue.name
+%p
+  %b Lat:
+  = @venue.lat
+%p
+  %b Lon:
+  = @venue.lon
+%p
+  %b Image url:
+  = @venue.image_url
+
+= link_to 'Edit', edit_venue_path(@venue)
+\|
+= link_to 'Back', venues_path

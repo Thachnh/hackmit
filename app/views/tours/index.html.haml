@@ -6,8 +6,8 @@
     %form.form-inline{role: "form"}
       .input-prepend
         %span.add-on Find
-        %input#inputTour{style: "width:400px", type: "text", placeholder:"What would you like to explore?"} /
-      %input#inputLocation{style: "width:200px", type: "text", onfocus:"this.value=''", value:"Boston, MA"}/
+        %input#inputTour{style: "width:400px", type: "text", placeholder:"What would you like to explore?", autocomplete: "off"} /
+      %input#inputLocation{style: "width:200px", type: "text", onfocus:"this.value=''", value:"Boston, MA", autocomplete: "off"}/
       %button.btn.btn-primary{style: "width:80px; margin: 0", type: "submit"}
         %i.icon-search.icon-white
 .container{style: "padding-top:10px;"}

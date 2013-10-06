@@ -1,5 +1,8 @@
 TourStarter::Application.routes.draw do
+
   resources :bookings, :except => [:index, :new]
+  resources :venues
+  resources :bookings, :except => [:index]
 
 
   resources :scheduled_tours, :except => [:index, :new]
