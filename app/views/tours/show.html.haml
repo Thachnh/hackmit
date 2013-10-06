@@ -20,21 +20,21 @@
     %p
       = @tour.description
     %p
-      = link_to 'New Schedule Tour', new_tour_scheduled_tour_path(@tour.id), :class => 'btn btn-success'
+      = link_to 'New Schedule Tour', new_scheduled_tour_path(@tour.id), :class => 'btn btn-success'
 
   %table
-  %tr
-    %th Tour
-    %th Start time
-    %th End time
-    %th Book
-
-  - @scheduled_tours.each do |scheduled_tour|
     %tr
-      %td= scheduled_tour.tour
-      %td= scheduled_tour.start_time
-      %td= scheduled_tour.end_time
-      %td= link_to 'Book This Tour', new_tour_scheduled_tour_booking_path(@tour.id, scheduled_tour), :class => 'btn btn-success'
+      %th Tour
+      %th Start time
+      %th End time
+      %th Book
+
+    - @scheduled_tours.each do |scheduled_tour|
+      %tr
+        %td= scheduled_tour.tour
+        %td= scheduled_tour.start_time
+        %td= scheduled_tour.end_time
+        %td= link_to 'Book This Tour'#, new_tour_scheduled_tour_booking_path(@tour.id, scheduled_tour), :class => 'btn btn-success'
 %br
 
 

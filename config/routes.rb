@@ -1,18 +1,14 @@
 TourStarter::Application.routes.draw do
-  #resources :bookings
+  resources :bookings, :except => [:index]
 
 
-  #resources :scheduled_tours
+  resources :scheduled_tours, :except => [:index, :new]
 
 
   get "home/index"
+  get "scheduled_tours/:tour_id/new", :to => 'scheduled_tours#new', :as => "new_scheduled_tour"
 
-  resources :tours do
-    resources :scheduled_tours do
-      resources :bookings
-    end
-
-  end
+  resources :tours 
 
   devise_for :users
 

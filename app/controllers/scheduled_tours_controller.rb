@@ -21,10 +21,12 @@ class ScheduledToursController < ApplicationController
     end
   end
 
-  # GET /scheduled_tours/new
-  # GET /scheduled_tours/new.json
+  # GET /scheduled_tours/:tour_id/new
+  # GET /scheduled_tours/:tour_id/new.json
   def new
+
     @scheduled_tour = ScheduledTour.new
+    @tour_id = params[:tour_id]
 
     respond_to do |format|
       format.html # new.html.erb
