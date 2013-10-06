@@ -3,5 +3,5 @@ class Tour < ActiveRecord::Base
   has_many :scheduled_tours
   belongs_to :user
   has_many :scheduled_tour
-  has_many :venue
+  has_many :venues
 end
