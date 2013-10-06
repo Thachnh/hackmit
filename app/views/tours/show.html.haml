@@ -3,7 +3,7 @@
 
   .row-fluid
     .span7
-      %img{src: "http://theoldreader.com/kittens/670/414"}/
+      %img{src: "#{@images[0]}"}/
       %h2 
         = @tour.name
       %p
@@ -25,6 +25,7 @@
         var names = #{@names}
         var lats = #{@lats}
         var lons = #{@lons}
+        var images = #{@images}
         // initialize your map as normal
         var options = {
             center: new google.maps.LatLng(lats[0],lons[0]),

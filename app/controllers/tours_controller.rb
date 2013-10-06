@@ -24,10 +24,12 @@ class ToursController < ApplicationController
     @lats = []
     @lons = []
     @names = []
+    @images = []
     @x.each do |v|
       @lats.push(v.lat)
       @lons.push(v.lon)
       @names.push(v.name)
+      @images.push(v.image_url)
     end
     respond_to do |format|
       format.html # show.html.erb
