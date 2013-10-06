@@ -14,12 +14,14 @@
   %hr.featurette-divider
 .container
   .row
-    -#- if !@tours.nil? and @tours.length > 0
     - @tours.each do |tour|
       =link_to tour do 
         .span4{style: "margin-bottom: 10px;"}
           .card{style: "background-color: #eee; padding: 5px"}
-            %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            - if tour.venues.empty?
+              %img{src: "http://theoldreader.com/kittens/300/200", style: "width: 100%; margin: 0; padding: 0; border: 0; display: block;"}/
+            - else
+              %img{src: "#{tour.venues[0].image_url}", style: "width: 100%; height: 200px; margin: 0; padding: 0; border: 0; display: block;"}/
             %h3{style: "margin: 5px 0;"}
               = tour.name
             .pull-left
