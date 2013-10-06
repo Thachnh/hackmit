@@ -43,7 +43,8 @@
                 // ...and add the Marker to your map
                 var marker = new google.maps.Marker({
                     position: latLng,
-                    map: map
+                    map: map,
+                    clickable: true
                 });
                 var infowindow = new google.maps.InfoWindow({
                     content: '<h4>'+name+'</h4>'
