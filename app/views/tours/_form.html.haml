@@ -38,16 +38,6 @@
           %img{src: @v.url}/
     - else
       %p.strong There isn't any venues yet. Tour requires at least one venue
-  %div.tour-venue.hidden#templa
-    %a{href:";"} X
-    %strong.venue-name= ""
-    %strong.venue-address{name:"a"}
-    %img{src: ""}
-    %input.venue-name{type:"hidden", name:"a"}
-    %input.venue-address{type:"hidden", name:"a"}
-    %input.venue-id{type:"hidden", name:"a"}
-    %input.venue-lat{type:"hidden", name:"a"}
-    %input.venue-lon{type:"hidden", name:"a"}
 
 
   %label.inline{:for=>"venue-search"} Add a venue
@@ -55,6 +45,15 @@
 
   .actions
     = f.submit 'Save', class: "btn btn-primary"
+%div.tour-venue.hidden#templa
+  %a{href:"#", onclick:"$(this).parent().remove(); return false;"} X
+  %strong.venue-name= ""
+  %strong.venue-address{name:"a"}
+  %img{src: ""}
+  %input.venue-name{type:"hidden", name:"venues[][name]"}
+  %input.venue-address{type:"hidden", name:"venues[][image_url]"}
+  %input.venue-lat{type:"hidden", name:"a"}
+  %input.venue-lon{type:"hidden", name:"a"}
 
 = javascript_include_tag "4sqacplugin.js"
 
@@ -73,8 +72,7 @@
         x = $('#templa.tour-venue').clone();
         x.children("strong.venue-name").html(ui.item.name);
         x.children("strong.venue-address").html(ui.item.address);
-        x.children("input.venue-name").html(ui.item.name);
-        x.children("input.venue-id").val(ui.item.id);
+        x.children("input.venue-name").val(ui.item.name);
         x.children("input.venue-address").val(ui.item.address);
         x.children("input.venue-lat").val(ui.item.lat);
         x.children("input.venue-lon").val(ui.item.lon);
