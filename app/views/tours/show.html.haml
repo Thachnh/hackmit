@@ -1,25 +1,29 @@
-%p#notice= notice
+.container
+  %p#notice= notice
 
-.row-fluid
-  .span7
-    %img{src: "http://placekitten.com/670/414"}/
-    %h2 
-      = @tour.name
-  .span5
-    = @tour.loc_name
-    %p
-      %b User:
-      = @tour.user_id
-    %p
-      %b Loc name:
+  .row-fluid
+    .span7
+      %img{src: "http://placekitten.com/670/414"}/
+      %h2 
+        = @tour.name
+    .span5
       = @tour.loc_name
+      %p
+        %b User:
+        = @tour.user_id
+      %p
+        %b Loc name:
+        = @tour.loc_name
+      %p
+        %b Prize:
+        = @tour.prize
+      %p
+        %b Start time:
+        = @tour.start_time
+      %p
+        %b End time:
+        = @tour.end_time
+      = link_to 'Book This Tour', new_booking_path(@tour.id), :class => 'btn btn-success'
+  .row-fluid
     %p
-      %b Prize:
-      = @tour.prize
-    %p
-      %b Start time:
-      = @tour.start_time
-    %p
-      %b End time:
-      = @tour.end_time
-    = link_to 'Book This Tour', new_tour_path, :class => 'btn btn-success'
+      = @tour.description
