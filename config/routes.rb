@@ -10,7 +10,7 @@ TourStarter::Application.routes.draw do
 
 
   get "home/index" , :to => 'home#index'
-  get "home/about", :to => 'home#about'
+  get "home/about", :to => 'home#about',  :as => 'about'
   get "scheduled_tours/:tour_id/new", :to => 'scheduled_tours#new', :as => "new_scheduled_tour"
   get "bookings/:scheduled_tour_id/new", :to => "bookings#new", :as => "new_booking"
 
