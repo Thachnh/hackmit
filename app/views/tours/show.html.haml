@@ -15,14 +15,20 @@
         %b Loc name:
         = @tour.loc_name
       %p
-        %b Prize:
+        %b Price:
         = @tour.prize
 
     %table
+      %tr
+        %th=  "Scheduled time"
+        %th=  "Total bookings"
+        %th=  "Actions"
+
       - @scheduled_tours.each do |scheduled_tour|
         %tr
           %td= "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
-          %td= link_to 'Book This Tour', new_booking_path(@tour.id), :class => 'btn btn-success'
+          %td= total_booking(scheduled_tour.bookings)
+          %td= link_to 'Book This Tour', new_booking_path(scheduled_tour.id), :class => 'btn btn-success'
     %p
       = link_to 'Schedule Time', new_scheduled_tour_path(@tour.id), :class => 'btn btn-primary'
   %p

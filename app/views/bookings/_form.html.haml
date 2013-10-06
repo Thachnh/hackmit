@@ -12,6 +12,10 @@
       = f.hidden_field :first_name, :value => current_user.first_name, :name => "booking[first_name]"
     .field
       = f.hidden_field :last_name, :value => current_user.last_name, :name => "booking[last_name]"
+    .field
+      = f.label :email
+      = f.email_field :email, :value => current_user.email
+    
   - else 
     .field
       = f.label :first_name
@@ -19,9 +23,9 @@
     .field
       = f.label :last_name
       = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.text_field :email
+    .field
+      = f.label :email
+      = f.email_field :email
   .field
     = f.label :phone
     = f.text_field :phone
