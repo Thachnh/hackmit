@@ -60,10 +60,12 @@ class ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
-        params[:venues].each do |v|
-          @venue = @tour.venues.create(v)
-          @venue.tour_id = @tour.id
-          @venue.save
+        if params[:venues] != nil
+          params[:venues].each do |v|
+            @venue = @tour.venues.create(v)
+            @venue.tour_id = @tour.id
+            @venue.save
+          end
         end
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
         format.json { render json: @tour, status: :created, location: @tour }

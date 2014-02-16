@@ -5,6 +5,6 @@ class Tour < ActiveRecord::Base
   has_many :scheduled_tour
   has_many :venues
   accepts_nested_attributes_for :venues
-  validates :name, :venues, :presence => true
+  validates :name, :presence => true
   acts_as_taggable
 end
