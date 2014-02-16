@@ -17,3 +17,6 @@ tmp
 # tmp files
 *swp
 *~
+
+# project file
+.project
