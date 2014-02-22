@@ -7,6 +7,19 @@ TourStarter::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = {:host => 'tourstarter.herokuapp.com'}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => 'utf-8'
+  config.action_mailer.delivery_method = :smtp
+  
+  ActionMailer::Base.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :user_name => MANDRILL['username'],
+    :password => MANDRILL['password']
+  }
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false

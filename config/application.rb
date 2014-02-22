@@ -60,3 +60,6 @@ module TourStarter
     config.assets.version = '1.0'
   end
 end
+
+MANDRILL = YAML.load_file("#{Rails.root}/config/mandrill.yml") # For mailing service
+
