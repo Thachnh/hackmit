@@ -48,6 +48,7 @@ class BookingsController < ApplicationController
     end
     respond_to do |format|
       if @booking.save
+        MailerRobot.book_notification(@booking).deliver # Send notification email
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render json: @booking, status: :created, location: @booking }
       else
