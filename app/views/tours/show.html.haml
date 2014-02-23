@@ -97,7 +97,7 @@
           %p
           .pull-left
             = "#{scheduled_tour.start_time.to_time.strftime('%b %e, %l:%M %p')} - #{scheduled_tour.end_time.to_time.strftime('%b %e, %l:%M %p')}"
-            = "(#{total_booking(scheduled_tour.bookings)} Bookers)"
+            = "(#{total_booking(scheduled_tour.bookings)} people booked this tour)"
           .pull-right
             - if @tour.user == current_user and 1==0
               %td= ""
