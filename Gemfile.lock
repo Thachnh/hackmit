@@ -68,6 +68,8 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    faraday (0.8.1)
+      multipart-post (~> 1.1)
     ffi (1.4.0)
     flatui-rails (0.0.4)
       bootstrap-sass (= 2.2.2)
@@ -79,6 +81,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    hashie (1.2.0)
     heroku (3.0.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -88,6 +91,7 @@ GEM
     heroku-api (0.3.15)
       excon (~> 0.25.1)
     hike (1.2.3)
+    httpauth (0.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -109,8 +113,23 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.1)
+    multipart-post (1.1.5)
     netrc (0.7.7)
     nokogiri (1.5.6)
+    oauth2 (0.8.0)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.0)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.0)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -212,6 +231,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   less-rails
+  omniauth-facebook
   pg
   rails (= 3.2.13)
   rspec-rails

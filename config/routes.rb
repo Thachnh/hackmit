@@ -18,7 +18,7 @@ TourStarter::Application.routes.draw do
 
   resources :tours 
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get '/my_tours', :to => 'tours#my_tour'
 

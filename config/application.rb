@@ -62,4 +62,4 @@ module TourStarter
 end
 
 MANDRILL = YAML.load_file("#{Rails.root}/config/mandrill.yml") # For mailing service
-
+FACEBOOK = YAML.load_file("#{Rails.root}/config/facebook.yml") # Facebook authentication

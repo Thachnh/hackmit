@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131006122105) do
+ActiveRecord::Schema.define(:version => 20140223174324) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "scheduled_tour_id"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20131006122105) do
     t.string   "phone"
     t.string   "verification_string"
     t.boolean  "is_verify"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

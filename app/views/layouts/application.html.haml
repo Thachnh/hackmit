@@ -29,6 +29,9 @@
               %ul.nav.pull-right
                 - if user_signed_in?            
                   %li
+                    - if current_user.provider == 'facebook'
+                      = link_to image_tag "http://graph.facebook.com/#{current_user.uid}/picture", :size => '30x30'
+                  %li
                     = link_to "#{current_user.first_name} #{current_user.last_name}" rescue nil
                   %li
                     = link_to "Sign out", destroy_user_session_path, :method => :delete
@@ -37,5 +40,7 @@
                     = link_to "Become a Tour Guide",  new_user_registration_path
                   %li
                     = link_to "Sign in", new_user_session_path
+                  %li
+                    = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
     .container{style: "padding-top: 50px"}
       = yield

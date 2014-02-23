@@ -56,3 +56,4 @@ end
 # gem 'debugger'
 # Gem Heroku
 gem "heroku"
+gem 'omniauth-facebook'
