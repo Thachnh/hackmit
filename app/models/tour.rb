@@ -4,7 +4,7 @@ class Tour < ActiveRecord::Base
   belongs_to :user
   has_many :scheduled_tour
   has_many :venues
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
   accepts_nested_attributes_for :venues
   validates :name, :presence => true
   acts_as_taggable

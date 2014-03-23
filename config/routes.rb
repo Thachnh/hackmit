@@ -16,7 +16,9 @@ TourStarter::Application.routes.draw do
   post "sendsms/:number_to_send_to/", :to => "send_sms#send_text_message", :as => "send_sms"
   get "formsendsms", :to => "send_sms#form_send_message", :as => "form_send_sms"
 
-  resources :tours 
+  resources :tours do
+    resources :reviews, :only => [:new, :index, :show, :create]
+  end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

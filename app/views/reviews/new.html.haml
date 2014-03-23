@@ -1,0 +1,11 @@
+%h1
+  = "Write a review for tour #{@tour.name}"
+%p
+  = form_for ([@tour, @review])  do |f|
+    .controls
+      = f.text_field :title, :class => 'text_field', :placeholder => 'Summary of your review'     
+    .controls
+      = f.text_area :description, :rows => 10, :style => "width:70%; resize: none", :class => 'text_area', :placeholder => 'Write your review here'
+    .actions
+      = f.submit 'Submit', class: "btn btn-primary"
+  

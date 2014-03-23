@@ -133,3 +133,17 @@
         %i.icon-star
         %i.icon-star
       .clear{style: "clear:both"}
+      
+  %p
+    - @tour.reviews.each do |review|
+      %p
+        %h4
+          = "#{review.title}"
+        %h5
+          = "#{review.description}"
+        %hr
+        
+  %p
+    = link_to  "Write a review",  new_tour_review_path(@tour.id), :class => 'btn icon-edit'
+    
+    
