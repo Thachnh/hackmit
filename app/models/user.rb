@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :tours
   has_many :bookings
-  
+  has_many :reviews
   devise :omniauthable, :omniauth_providers => [:facebook]
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
